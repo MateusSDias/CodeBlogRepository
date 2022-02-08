@@ -2,8 +2,10 @@ package com.spring.codeblog.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity
@@ -15,18 +17,19 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+
+    @NotBlank
     private String titulo;
 
 
-    @NotNull
+    @NotBlank
     private String autor;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate data;
 
     @Lob
-    @NotNull
+    @NotBlank
     private String texto;
 
 
